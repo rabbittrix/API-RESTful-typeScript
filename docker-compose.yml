@@ -1,0 +1,15 @@
+version: "3"
+services:
+  api:
+    image: gamefactoring/api-ts
+    ports:
+      - "80:3000"
+    links:
+      - link-db
+  link-db:
+    image: tutum/mongodb
+    ports: 
+      - "27017:27017"
+      - "28017:28017"
+    environment:
+      - AUTH=no
